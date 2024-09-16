@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, TextField } from '@mui/material';
+import { Box, Typography, TextField, Container } from '@mui/material';
 import RestaurantList from '../components/RestaurantList';
 import { APIPATH } from '../constants';
 
@@ -41,32 +41,34 @@ const Restaurants = () => {
         // return data;
 
         const filteredData = await dummyData.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()));
-        console.log('filteredData = ' , filteredData);        
         setRestaurantsArr(filteredData);
     };
 
     useEffect(() => {
         console.log('searchText = ' + searchText);
         let restroArr = fetchRestaurants(searchText);
-        console.log('restroArr = ' , restroArr);
         // setRestaurantsArr(restroArr);
     }, [searchText]);
     return (
-        <Box width={500}>
-            <Typography variant="h4">Restaurants</Typography>
-            <TextField
-                placeholder='Type the name or id'
-                onChange={(e) => {
-                    console.log(e.target.value);
-                    setSearchText(e.target.value);
-                    return <></>
-                }}
-            >
-            </TextField>
-            {(restaurantsArr && restaurantsArr.length > 0) ?
-                <RestaurantList restaurantArr={restaurantsArr} /> :
-                <Typography margin={5}>No restaurants found</Typography>}
-        </Box>
+        <Container maxWidth="sm">
+            <Box sx={{ mt: 4 }}>
+                <Typography variant="h4" component="h1" gutterBottom>Restaurants</Typography>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    sx={{ my: 2, width: '100%' }}
+                    placeholder='Type the name or id'
+                    onChange={(e) => {
+                        setSearchText(e.target.value);
+                        return <></>
+                    }}
+                >
+                </TextField>
+                {(restaurantsArr && restaurantsArr.length > 0) ?
+                    <RestaurantList restaurantArr={restaurantsArr} /> :
+                    <Typography margin={5}>No restaurants found</Typography>}
+            </Box>
+        </Container>
     )
 }
 

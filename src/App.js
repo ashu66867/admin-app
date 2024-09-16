@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Tickets from './pages/Tickets';
 import Approvals from './pages/Approvals';
 import Restaurants from './pages/Restaurants';
+import CreateRestaurant from './pages/CreateRestaurant';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/approvals" element={<Approvals />} />
-          <Route path="/restarurants" element={<Restaurants />} />
+          <Route path="/restaurants" element={<Restaurants />} />
+          <Route path="/restaurants/signup" element={<CreateRestaurant />} />
         </Routes>
         {/* <div className="App">
           <header className="App-header">

@@ -8,8 +8,11 @@ const Sidebar = () => (
             <ListItem button component={Link} to="/">
                 <ListItemText primary="Dashboard" />
             </ListItem>
-            <ListItem button component={Link} to="/restarurants">
+            <ListItem button component={Link} to="/restaurants">
                 <ListItemText primary="Restaurants" />
+            </ListItem>
+            <ListItem button component={Link} to="/restaurants/signup">
+                <ListItemText primary="Onboard a new Restaurant" />
             </ListItem>
             <ListItem button component={Link} to="/approvals">
                 <ListItemText primary="Approvals" />
